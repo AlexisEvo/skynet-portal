@@ -15,7 +15,7 @@ function _M.resolve_short_code(short_code)
 
   res, err, errcode, sqlstate = db.query(db, "SELECT uuid FROM short_uri WHERE id=" .. quoted_short .. ";", 1)
   if not res then
-    ngx.log(ngx.ERR, "bad result: ", err, ": ", errcode, ": ", sqlstate, ".")
+    ngx.log(ngx.ERR, "short code: ", short_code, ", bad result: ", err, ": ", errcode, ": ", sqlstate, ".")
   end
 
   -- cover empty result sets and invalid uuids
